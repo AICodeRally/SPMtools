@@ -130,7 +130,6 @@ Return ONLY the JSON object.`
       const { text } = await generateText({
         model: openai('gpt-4o'),
         prompt,
-        maxTokens: 800,
       })
 
       try {
