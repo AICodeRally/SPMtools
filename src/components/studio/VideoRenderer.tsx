@@ -14,7 +14,7 @@ export function VideoRenderer({ episodeId, cutId, cutFormat, onComplete }: Video
   const [avatars, setAvatars] = useState<any[]>([])
   const [voices, setVoices] = useState<any[]>([])
   const [selectedAvatar, setSelectedAvatar] = useState('')
-  const [selectedVoice, setSelectedVoice] = useState('wayne')
+  const [selectedVoice, setSelectedVoice] = useState('1bd001e7e50f421d891986aad5158bc8')
   const [aspectRatio, setAspectRatio] = useState<'9:16' | '1:1' | '16:9'>('9:16')
   const [generating, setGenerating] = useState(false)
   const [videoId, setVideoId] = useState<string | null>(null)
@@ -249,11 +249,17 @@ export function VideoRenderer({ episodeId, cutId, cutFormat, onComplete }: Video
           onChange={(e) => setSelectedVoice(e.target.value)}
           className="w-full px-4 py-2 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 focus:ring-2 focus:ring-purple-500 outline-none"
         >
-          <option value="wayne">Wayne (AI - Deep & Professional)</option>
-          <option value="marcus">Marcus (AI - Gravelly & Experienced)</option>
+          <option value="1bd001e7e50f421d891986aad5158bc8">Default Voice (Professional Male)</option>
+          <option value="f38a635bee7a4d1f9b0a654a31d050d2">Chill Brian (Male)</option>
+          <option value="acff30ce1e944de8ac429d26fa9367ad">Mark (Male)</option>
+          {voices.filter(v => v.provider === 'heygen').map((voice) => (
+            <option key={voice.id} value={voice.providerId}>
+              {voice.name} (HeyGen)
+            </option>
+          ))}
           {voices.filter(v => v.provider === 'custom').map((voice) => (
             <option key={voice.id} value={voice.providerId}>
-              {voice.name} (Your Voice)
+              {voice.name} (Custom)
             </option>
           ))}
         </select>
