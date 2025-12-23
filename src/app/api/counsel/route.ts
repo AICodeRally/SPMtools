@@ -18,8 +18,8 @@ export async function GET(request: Request) {
         ...(type && { type }),
         ...(search && {
           OR: [
-            { title: { contains: search, mode: 'insensitive' } },
-            { oneLiner: { contains: search, mode: 'insensitive' } },
+            { title: { contains: search } },
+            { oneLiner: { contains: search } },
           ],
         }),
       },
