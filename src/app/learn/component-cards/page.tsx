@@ -26,8 +26,8 @@ export default async function ComponentCardsPage() {
         </div>
 
         <div className="relative z-10 container mx-auto px-6 text-center">
-          <h1 className="text-display text-white mb-6">COMPONENT CARDS</h1>
-          <p className="text-headline text-gray-200 max-w-3xl mx-auto">
+          <h1 className="text-display text-transparent bg-clip-text bg-gradient-to-r from-spm-copper via-spm-purple to-spm-gold mb-6">COMPONENT CARDS</h1>
+          <p className="text-headline text-gray-100 max-w-3xl mx-auto">
             The building blocks of comp design. Every element explained.
           </p>
         </div>
@@ -59,37 +59,37 @@ export default async function ComponentCardsPage() {
           <div className="max-w-2xl mx-auto">
             <NoirCard variant="elevated">
               <NoirCardContent className="p-12 text-center">
-                <h2 className="text-2xl font-headline text-spm-purple mb-4">
+                <h2 className="text-2xl font-headline bg-gradient-to-r from-spm-purple to-spm-gold bg-clip-text text-transparent mb-4">
                   Component Cards Coming Soon
                 </h2>
-                <p className="text-gray-300 mb-6">
+                <p className="text-gray-200 mb-6">
                   The Toddfather is building deep-dive cards on every SPM component.
                   Check back soon for:
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left max-w-xl mx-auto">
-                  <div className="flex items-start gap-2">
-                    <span className="text-spm-purple">•</span>
-                    <span className="text-gray-400">Quotas (types, allocation, gotchas)</span>
+                  <div className="flex items-start gap-2 bg-spm-purple/5 p-3 rounded-lg">
+                    <span className="text-spm-purple flex-shrink-0">•</span>
+                    <span className="text-gray-300">Quotas (types, allocation, gotchas)</span>
                   </div>
-                  <div className="flex items-start gap-2">
-                    <span className="text-spm-purple">•</span>
-                    <span className="text-gray-400">Accelerators (curves, cliffs, timing)</span>
+                  <div className="flex items-start gap-2 bg-spm-copper/5 p-3 rounded-lg">
+                    <span className="text-spm-copper flex-shrink-0">•</span>
+                    <span className="text-gray-300">Accelerators (curves, cliffs, timing)</span>
                   </div>
-                  <div className="flex items-start gap-2">
-                    <span className="text-spm-purple">•</span>
-                    <span className="text-gray-400">Splits (rules, overlays, credit)</span>
+                  <div className="flex items-start gap-2 bg-spm-gold/5 p-3 rounded-lg">
+                    <span className="text-spm-gold flex-shrink-0">•</span>
+                    <span className="text-gray-300">Splits (rules, overlays, credit)</span>
                   </div>
-                  <div className="flex items-start gap-2">
-                    <span className="text-spm-purple">•</span>
-                    <span className="text-gray-400">Territories (coverage, routing, gaps)</span>
+                  <div className="flex items-start gap-2 bg-spm-purple-light/5 p-3 rounded-lg">
+                    <span className="text-spm-purple-light flex-shrink-0">•</span>
+                    <span className="text-gray-300">Territories (coverage, routing, gaps)</span>
                   </div>
-                  <div className="flex items-start gap-2">
-                    <span className="text-spm-purple">•</span>
-                    <span className="text-gray-400">Hierarchies (rollups, reporting, calc)</span>
+                  <div className="flex items-start gap-2 bg-spm-purple/5 p-3 rounded-lg">
+                    <span className="text-spm-purple flex-shrink-0">•</span>
+                    <span className="text-gray-300">Hierarchies (rollups, reporting, calc)</span>
                   </div>
-                  <div className="flex items-start gap-2">
-                    <span className="text-spm-purple">•</span>
-                    <span className="text-gray-400">Measures (bookings, revenue, ARR)</span>
+                  <div className="flex items-start gap-2 bg-spm-copper/5 p-3 rounded-lg">
+                    <span className="text-spm-copper flex-shrink-0">•</span>
+                    <span className="text-gray-300">Measures (bookings, revenue, ARR)</span>
                   </div>
                 </div>
                 <div className="mt-8">
@@ -102,25 +102,36 @@ export default async function ComponentCardsPage() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {cards.map((card) => (
+            {cards.map((card, idx) => {
+              // Dynamic color mapping for categories
+              const colorMap: { [key: string]: { bg: string; text: string; accent: string } } = {
+                'Plan Elements': { bg: 'bg-spm-purple/10', text: 'text-spm-purple', accent: 'text-spm-purple' },
+                'Rule Types': { bg: 'bg-spm-copper/10', text: 'text-spm-copper', accent: 'text-spm-copper' },
+                'Admin Objects': { bg: 'bg-spm-gold/10', text: 'text-spm-gold', accent: 'text-spm-gold' },
+                'Calculations': { bg: 'bg-spm-purple-light/10', text: 'text-spm-purple-light', accent: 'text-spm-purple-light' },
+                'Hierarchies': { bg: 'bg-spm-copper/10', text: 'text-spm-copper', accent: 'text-spm-copper' },
+              };
+              const colors = colorMap[card.category] || { bg: 'bg-spm-purple/10', text: 'text-spm-purple', accent: 'text-spm-purple' };
+
+              return (
               <NoirCard key={card.id} variant="interactive" hover>
                 <NoirCardContent className="p-6">
                   <div className="mb-3">
-                    <span className="text-xs px-2 py-1 bg-spm-purple/20 text-spm-purple rounded">
+                    <span className={`text-xs px-3 py-1 ${colors.bg} ${colors.text} rounded-full font-semibold`}>
                       {card.category}
                     </span>
                   </div>
-                  <NoirCardTitle className="text-xl mb-3">
+                  <NoirCardTitle className="text-xl mb-3 text-white">
                     {card.name}
                   </NoirCardTitle>
-                  <NoirCardDescription className="mb-4">
+                  <NoirCardDescription className="mb-4 text-gray-200">
                     {card.description}
                   </NoirCardDescription>
 
                   {card.bestFor.length > 0 && (
-                    <div className="mb-3">
-                      <p className="text-xs font-headline text-green-400 mb-1">Best For:</p>
-                      <ul className="text-sm text-gray-400 space-y-1">
+                    <div className="mb-3 bg-green-500/10 rounded-lg p-3">
+                      <p className={`text-xs font-headline text-green-300 mb-1 font-semibold`}>✓ Best For:</p>
+                      <ul className="text-sm text-gray-300 space-y-1">
                         {card.bestFor.slice(0, 2).map((item: string, i: number) => (
                           <li key={i}>• {item}</li>
                         ))}
@@ -129,9 +140,9 @@ export default async function ComponentCardsPage() {
                   )}
 
                   {card.gotchas.length > 0 && (
-                    <div>
-                      <p className="text-xs font-headline text-amber-400 mb-1">Gotchas:</p>
-                      <ul className="text-sm text-gray-400 space-y-1">
+                    <div className="bg-amber-500/10 rounded-lg p-3">
+                      <p className={`text-xs font-headline text-amber-300 mb-1 font-semibold`}>⚠ Gotchas:</p>
+                      <ul className="text-sm text-gray-300 space-y-1">
                         {card.gotchas.slice(0, 2).map((item: string, i: number) => (
                           <li key={i}>• {item}</li>
                         ))}
@@ -140,7 +151,8 @@ export default async function ComponentCardsPage() {
                   )}
                 </NoirCardContent>
               </NoirCard>
-            ))}
+            );
+            })}
           </div>
         )}
       </section>

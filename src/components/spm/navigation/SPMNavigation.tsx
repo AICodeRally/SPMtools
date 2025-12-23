@@ -99,8 +99,11 @@ export function SPMNavigation() {
             className="flex items-center space-x-3 group transition-all"
           >
             <div className="flex flex-col">
-              <div className="text-2xl font-headline text-white group-hover:text-spm-purple transition-colors tracking-wider">
-                INTELLIGENT SPM
+              <div className="text-2xl font-headline tracking-wider group-hover:opacity-80 transition-all">
+                <span className="text-white">INTELLIGENT </span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-spm-purple via-spm-gold to-spm-copper">
+                  SPM
+                </span>
               </div>
               <div className="text-xs text-gray-400 group-hover:text-spm-purple-light transition-colors font-body italic -mt-1">
                 Home of The Toddfather

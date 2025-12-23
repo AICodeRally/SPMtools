@@ -16,8 +16,8 @@ export default function SPM101Page() {
         </div>
 
         <div className="relative z-10 container mx-auto px-6 text-center">
-          <h1 className="text-display text-white mb-6">SPM 101</h1>
-          <p className="text-headline text-gray-200 max-w-3xl mx-auto">
+          <h1 className="text-display text-transparent bg-clip-text bg-gradient-to-r from-spm-purple via-spm-gold to-spm-copper mb-6">SPM 101</h1>
+          <p className="text-headline text-gray-100 max-w-3xl mx-auto">
             Sales Performance Management explained. No jargon, no vendor speak.
           </p>
         </div>
@@ -52,31 +52,31 @@ export default function SPM101Page() {
           {/* Core Components */}
           <NoirCard variant="elevated">
             <NoirCardContent className="p-12">
-              <h2 className="text-headline-lg text-spm-purple mb-6">
+              <h2 className="text-headline-lg text-spm-purple mb-8">
                 The Core Components
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="border-l-4 border-spm-purple pl-6">
-                  <h3 className="text-xl font-headline text-white mb-2">Comp Plan</h3>
-                  <p className="text-gray-300">
+                <div className="border-l-4 border-spm-purple pl-6 rounded-r-lg bg-spm-purple/5 p-6 -ml-6">
+                  <h3 className="text-xl font-headline text-spm-purple mb-2">Comp Plan</h3>
+                  <p className="text-gray-200 leading-relaxed">
                     The rules. Quotas, accelerators, splits, territories. What you need to do to earn what.
                   </p>
                 </div>
-                <div className="border-l-4 border-spm-copper pl-6">
-                  <h3 className="text-xl font-headline text-white mb-2">Data Pipeline</h3>
-                  <p className="text-gray-300">
+                <div className="border-l-4 border-spm-copper pl-6 rounded-r-lg bg-spm-copper/5 p-6 -ml-6">
+                  <h3 className="text-xl font-headline text-spm-copper mb-2">Data Pipeline</h3>
+                  <p className="text-gray-200 leading-relaxed">
                     The plumbing. CRM deals, ERP revenue, manual adjustments. The data that flows in.
                   </p>
                 </div>
-                <div className="border-l-4 border-spm-gold pl-6">
-                  <h3 className="text-xl font-headline text-white mb-2">Calculation Engine</h3>
-                  <p className="text-gray-300">
+                <div className="border-l-4 border-spm-gold pl-6 rounded-r-lg bg-spm-gold/5 p-6 -ml-6">
+                  <h3 className="text-xl font-headline text-spm-gold mb-2">Calculation Engine</h3>
+                  <p className="text-gray-200 leading-relaxed">
                     The math. Applies comp plan rules to data. Produces payout amounts.
                   </p>
                 </div>
-                <div className="border-l-4 border-spm-purple-light pl-6">
-                  <h3 className="text-xl font-headline text-white mb-2">Governance</h3>
-                  <p className="text-gray-300">
+                <div className="border-l-4 border-spm-purple-light pl-6 rounded-r-lg bg-spm-purple-light/5 p-6 -ml-6">
+                  <h3 className="text-xl font-headline text-spm-purple-light mb-2">Governance</h3>
+                  <p className="text-gray-200 leading-relaxed">
                     The controls. Change management, approvals, audit trails. Prevents chaos.
                   </p>
                 </div>

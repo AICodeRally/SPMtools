@@ -63,11 +63,11 @@ export default function Homepage() {
 
         {/* Hero Content */}
         <div className="relative z-10 container mx-auto px-6 text-center">
-          <h1 className="text-display text-white mb-6 drop-shadow-noir-lg">
+          <h1 className="text-display text-transparent bg-clip-text bg-gradient-to-r from-spm-purple via-spm-copper to-spm-gold mb-6 drop-shadow-noir-lg">
             INTELLIGENT SPM
           </h1>
 
-          <p className="text-headline-lg text-gray-200 mb-8 max-w-3xl mx-auto">
+          <p className="text-headline-lg text-gray-100 mb-8 max-w-3xl mx-auto">
             The clearing house for sales compensation, governance, and
             performance truth.
           </p>
@@ -120,23 +120,23 @@ export default function Homepage() {
 
       {/* Fast Paths (3 Tiles) */}
       <section className="py-20 container mx-auto px-6">
-        <h2 className="text-headline-lg text-center text-white mb-4">
+        <h2 className="text-headline-lg text-center text-transparent bg-clip-text bg-gradient-to-r from-spm-purple to-spm-copper mb-4">
           Start Here
         </h2>
-        <p className="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
+        <p className="text-center text-gray-200 mb-12 max-w-2xl mx-auto">
           Three fast paths into the Intelligent SPM clearing house
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Tile 1 */}
           <NoirCard variant="interactive" hover>
-            <NoirCardContent className="p-8 text-center">
-              <div className="w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+            <NoirCardContent className="p-8 text-center bg-gradient-to-br from-spm-purple/10 to-spm-black">
+              <div className="w-20 h-20 mx-auto mb-6 flex items-center justify-center bg-spm-purple/20 rounded-full">
                 <UploadIcon className="w-16 h-16 text-spm-purple" />
               </div>
-              <NoirCardTitle>Upload & Diagnose</NoirCardTitle>
-              <NoirCardDescription>
-                Run a Plan QA check in 60 seconds. Upload your comp plan and get instant risk scoring.
+              <NoirCardTitle className="text-spm-purple">Upload & Diagnose</NoirCardTitle>
+              <NoirCardDescription className="text-gray-200">
+                Run a Plan QA check in 60 seconds. Upload your comp plan and get instant risk scoring, governance recommendations, and implementation reality checks.
               </NoirCardDescription>
               <Link href="/analyze/plan-check" className="inline-block mt-6 text-spm-purple hover:text-spm-purple-light font-semibold transition-colors">
                 Start Plan Check →
@@ -146,15 +146,15 @@ export default function Homepage() {
 
           {/* Tile 2 */}
           <NoirCard variant="interactive" hover>
-            <NoirCardContent className="p-8 text-center">
-              <div className="w-20 h-20 mx-auto mb-6 flex items-center justify-center">
-                <LibraryIcon className="w-16 h-16 text-spm-purple" />
+            <NoirCardContent className="p-8 text-center bg-gradient-to-br from-spm-copper/10 to-spm-black">
+              <div className="w-20 h-20 mx-auto mb-6 flex items-center justify-center bg-spm-copper/20 rounded-full">
+                <LibraryIcon className="w-16 h-16 text-spm-copper" />
               </div>
-              <NoirCardTitle>SPM Component Cards</NoirCardTitle>
-              <NoirCardDescription>
-                Learn the building blocks of comp design. Glossary, best practices, and gotchas for every SPM element.
+              <NoirCardTitle className="text-spm-copper">SPM Component Cards</NoirCardTitle>
+              <NoirCardDescription className="text-gray-200">
+                Learn the building blocks of comp design. Deep dives on quotas, accelerators, splits, territories, hierarchies, and measures. Gotchas, best practices, and implementation guidance.
               </NoirCardDescription>
-              <Link href="/learn/component-cards" className="inline-block mt-6 text-spm-purple hover:text-spm-purple-light font-semibold transition-colors">
+              <Link href="/learn/component-cards" className="inline-block mt-6 text-spm-copper hover:text-orange-300 font-semibold transition-colors">
                 Browse Library →
               </Link>
             </NoirCardContent>
@@ -162,15 +162,15 @@ export default function Homepage() {
 
           {/* Tile 3 */}
           <NoirCard variant="interactive" hover>
-            <NoirCardContent className="p-8 text-center">
-              <div className="w-20 h-20 mx-auto mb-6 flex items-center justify-center">
-                <ScorecardIcon className="w-16 h-16 text-spm-purple" />
+            <NoirCardContent className="p-8 text-center bg-gradient-to-br from-spm-gold/10 to-spm-black">
+              <div className="w-20 h-20 mx-auto mb-6 flex items-center justify-center bg-spm-gold/20 rounded-full">
+                <ScorecardIcon className="w-16 h-16 text-spm-gold" />
               </div>
-              <NoirCardTitle>Vendor Scorecards</NoirCardTitle>
-              <NoirCardDescription>
-                Who's good at what, who breaks where. Real implementation reality from actual rollouts.
+              <NoirCardTitle className="text-spm-gold">Vendor Scorecards</NoirCardTitle>
+              <NoirCardDescription className="text-gray-200">
+                Who's good at what, who breaks where. Real implementation reality from actual rollouts. See what works, what doesn't, and why systems fail.
               </NoirCardDescription>
-              <Link href="/vendors" className="inline-block mt-6 text-spm-purple hover:text-spm-purple-light font-semibold transition-colors">
+              <Link href="/vendors" className="inline-block mt-6 text-spm-gold hover:text-yellow-300 font-semibold transition-colors">
                 View Scorecards →
               </Link>
             </NoirCardContent>
@@ -181,21 +181,21 @@ export default function Homepage() {
       {/* What We Are (6-lane grid) */}
       <section className="py-20 bg-spm-black-soft">
         <div className="container mx-auto px-6">
-          <h2 className="text-headline-lg text-center text-white mb-4">
+          <h2 className="text-headline-lg text-center text-transparent bg-clip-text bg-gradient-to-r from-spm-purple to-spm-copper mb-4">
             What We Are
           </h2>
-          <p className="text-center text-gray-400 mb-16 max-w-2xl mx-auto">
+          <p className="text-center text-gray-200 mb-16 max-w-2xl mx-auto">
             The comprehensive SPM clearing house - six integrated capabilities
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <Link href="/learn">
               <NoirCard variant="interactive" hover className="h-full">
-                <NoirCardContent className="p-8 text-center">
+                <NoirCardContent className="p-8 text-center bg-gradient-to-br from-spm-purple/10 to-spm-black">
                   <div className="mb-6 flex items-center justify-center">
                     <LearnIcon className="w-20 h-20 text-spm-purple" />
                   </div>
-                  <NoirCardTitle>Learn</NoirCardTitle>
+                  <NoirCardTitle className="text-spm-purple">Learn</NoirCardTitle>
                   <NoirCardDescription>Glossary, guides, component cards</NoirCardDescription>
                 </NoirCardContent>
               </NoirCard>
@@ -203,11 +203,11 @@ export default function Homepage() {
 
             <Link href="/analyze">
               <NoirCard variant="interactive" hover className="h-full">
-                <NoirCardContent className="p-8 text-center">
+                <NoirCardContent className="p-8 text-center bg-gradient-to-br from-spm-copper/10 to-spm-black">
                   <div className="mb-6 flex items-center justify-center">
-                    <AnalyzeIcon className="w-20 h-20 text-spm-purple" />
+                    <AnalyzeIcon className="w-20 h-20 text-spm-copper" />
                   </div>
-                  <NoirCardTitle>Analyze</NoirCardTitle>
+                  <NoirCardTitle className="text-spm-copper">Analyze</NoirCardTitle>
                   <NoirCardDescription>Plan QA, risk scoring, simulators</NoirCardDescription>
                 </NoirCardContent>
               </NoirCard>
@@ -215,11 +215,11 @@ export default function Homepage() {
 
             <Link href="/benchmarks">
               <NoirCard variant="interactive" hover className="h-full">
-                <NoirCardContent className="p-8 text-center">
+                <NoirCardContent className="p-8 text-center bg-gradient-to-br from-spm-gold/10 to-spm-black">
                   <div className="mb-6 flex items-center justify-center">
-                    <BenchmarksIcon className="w-20 h-20 text-spm-purple" />
+                    <BenchmarksIcon className="w-20 h-20 text-spm-gold" />
                   </div>
-                  <NoirCardTitle>Benchmarks</NoirCardTitle>
+                  <NoirCardTitle className="text-spm-gold">Benchmarks</NoirCardTitle>
                   <NoirCardDescription>Curves, quota patterns, governance</NoirCardDescription>
                 </NoirCardContent>
               </NoirCard>
@@ -227,11 +227,11 @@ export default function Homepage() {
 
             <Link href="/vendors">
               <NoirCard variant="interactive" hover className="h-full">
-                <NoirCardContent className="p-8 text-center">
+                <NoirCardContent className="p-8 text-center bg-gradient-to-br from-spm-purple-light/10 to-spm-black">
                   <div className="mb-6 flex items-center justify-center">
-                    <VendorsIcon className="w-20 h-20 text-spm-purple" />
+                    <VendorsIcon className="w-20 h-20 text-spm-purple-light" />
                   </div>
-                  <NoirCardTitle>Vendors</NoirCardTitle>
+                  <NoirCardTitle className="text-spm-purple-light">Vendors</NoirCardTitle>
                   <NoirCardDescription>Scorecards, implementation reality</NoirCardDescription>
                 </NoirCardContent>
               </NoirCard>
@@ -239,11 +239,11 @@ export default function Homepage() {
 
             <Link href="/syndicate">
               <NoirCard variant="interactive" hover className="h-full">
-                <NoirCardContent className="p-8 text-center">
+                <NoirCardContent className="p-8 text-center bg-gradient-to-br from-spm-purple/10 to-spm-black">
                   <div className="mb-6 flex items-center justify-center">
                     <CommunityIcon className="w-20 h-20 text-spm-purple" />
                   </div>
-                  <NoirCardTitle>Community</NoirCardTitle>
+                  <NoirCardTitle className="text-spm-purple">Community</NoirCardTitle>
                   <NoirCardDescription>Syndicate, office hours, newsletter</NoirCardDescription>
                 </NoirCardContent>
               </NoirCard>
@@ -251,11 +251,11 @@ export default function Homepage() {
 
             <Link href="/services">
               <NoirCard variant="interactive" hover className="h-full">
-                <NoirCardContent className="p-8 text-center">
+                <NoirCardContent className="p-8 text-center bg-gradient-to-br from-spm-copper/10 to-spm-black">
                   <div className="mb-6 flex items-center justify-center">
-                    <ServicesIcon className="w-20 h-20 text-spm-purple" />
+                    <ServicesIcon className="w-20 h-20 text-spm-copper" />
                   </div>
-                  <NoirCardTitle>Services</NoirCardTitle>
+                  <NoirCardTitle className="text-spm-copper">Services</NoirCardTitle>
                   <NoirCardDescription>Assessment → redesign → governance</NoirCardDescription>
                 </NoirCardContent>
               </NoirCard>
@@ -268,10 +268,10 @@ export default function Homepage() {
       <section className="py-20 container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
           <div>
-            <h2 className="text-headline-lg text-white mb-2">
+            <h2 className="text-headline-lg text-transparent bg-clip-text bg-gradient-to-r from-spm-gold to-spm-copper mb-2">
               The SPM Reality
             </h2>
-            <p className="text-gray-400">
+            <p className="text-gray-200">
               Latest insights on comp design, governance, and performance truth
             </p>
           </div>
@@ -283,7 +283,7 @@ export default function Homepage() {
                 className={
                   filter === 'All'
                     ? 'px-4 py-2 bg-spm-purple text-white text-sm rounded-lg font-semibold'
-                    : 'px-4 py-2 bg-spm-black-soft border border-spm-purple-dark/30 text-gray-300 hover:text-white text-sm rounded-lg transition-colors'
+                    : 'px-4 py-2 bg-spm-black-soft border border-spm-purple-dark/30 text-gray-200 hover:text-white hover:border-spm-purple text-sm rounded-lg transition-colors'
                 }
               >
                 {filter}
@@ -293,25 +293,34 @@ export default function Homepage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[1, 2, 3].map((i) => (
+          {[1, 2, 3].map((i) => {
+            const colors = ['spm-purple', 'spm-copper', 'spm-gold'][i % 3];
+            const colorClasses = {
+              'spm-purple': { text: 'text-spm-purple', bg: 'bg-spm-purple/10', border: 'border-spm-purple/30' },
+              'spm-copper': { text: 'text-spm-copper', bg: 'bg-spm-copper/10', border: 'border-spm-copper/30' },
+              'spm-gold': { text: 'text-spm-gold', bg: 'bg-spm-gold/10', border: 'border-spm-gold/30' },
+            }[colors] || { text: 'text-spm-purple', bg: 'bg-spm-purple/10', border: 'border-spm-purple/30' };
+
+            return (
             <NoirCard key={i} variant="elevated">
-              <NoirCardContent className="p-6">
-                <div className="text-xs text-spm-purple font-semibold mb-2">
+              <NoirCardContent className={`p-6 border-l-4 ${colorClasses.border}`}>
+                <div className={`text-xs ${colorClasses.text} font-semibold mb-2`}>
                   PODCAST • DEC {20 + i}, 2024
                 </div>
-                <NoirCardTitle className="text-xl mb-3">
+                <NoirCardTitle className="text-xl mb-3 text-white">
                   Coming Soon: SPM Content
                 </NoirCardTitle>
-                <NoirCardDescription>
+                <NoirCardDescription className="text-gray-200">
                   Episodes, articles, and insights from The Toddfather on SPM reality. Content will be populated from the studio and counsel library.
                 </NoirCardDescription>
                 <div className="mt-4 flex gap-2">
-                  <span className="px-2 py-1 bg-spm-purple/20 text-spm-purple text-xs rounded">Governance</span>
-                  <span className="px-2 py-1 bg-spm-purple/20 text-spm-purple text-xs rounded">Implementation</span>
+                  <span className={`px-3 py-1 ${colorClasses.bg} ${colorClasses.text} text-xs rounded-full font-semibold`}>Governance</span>
+                  <span className={`px-3 py-1 ${colorClasses.bg} ${colorClasses.text} text-xs rounded-full font-semibold`}>Implementation</span>
                 </div>
               </NoirCardContent>
             </NoirCard>
-          ))}
+            );
+          })}
         </div>
 
         <div className="text-center mt-12">
@@ -322,15 +331,15 @@ export default function Homepage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-spm-purple-dark/20 via-spm-black to-spm-black border-t border-spm-purple-dark/30">
+      <section className="py-32 bg-gradient-to-br from-spm-purple-dark/20 via-spm-black to-spm-black border-t border-spm-purple-dark/30">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-headline-lg text-white mb-6">
+          <h2 className="text-headline-lg text-transparent bg-clip-text bg-gradient-to-r from-spm-purple via-spm-gold to-spm-copper mb-6">
             Ready to Check Your Plan?
           </h2>
-          <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Upload your comp plan and get instant risk scoring, governance recommendations, and implementation reality checks.
+          <p className="text-gray-100 mb-10 max-w-2xl mx-auto text-lg">
+            Upload your comp plan and get instant risk scoring, governance recommendations, and implementation reality checks from The Toddfather.
           </p>
-          <Link href="/analyze/plan-check" className="inline-block px-12 py-4 bg-spm-purple hover:bg-spm-purple-light text-white text-lg font-semibold rounded-lg transition-all hover:shadow-purple-glow hover:scale-105">
+          <Link href="/analyze/plan-check" className="inline-block px-12 py-4 bg-gradient-to-r from-spm-purple to-spm-purple-light hover:from-spm-purple-light hover:to-spm-purple text-white text-lg font-semibold rounded-lg transition-all hover:shadow-purple-glow hover:scale-105 border border-spm-purple-light/30">
             Run a Plan Check — Free
           </Link>
         </div>
