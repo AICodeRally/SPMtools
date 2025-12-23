@@ -1,48 +1,22 @@
 import NextAuth from "next-auth"
-import { buildNextAuthConfig, type RallyAuthConfig } from "@rally/auth"
+import { PrismaAdapter } from "@auth/prisma-adapter"
+import EmailProvider from "next-auth/providers/resend"
 import { prisma } from "./src/lib/db"
 
-// Build Rally Auth configuration
-const providers: RallyAuthConfig["providers"] = {}
+export const { handlers, auth, signIn, signOut } = NextAuth({
+  adapter: PrismaAdapter(prisma),
 
-// Add Google OAuth if credentials present
-if (process.env.AUTH_GOOGLE_ID && process.env.AUTH_GOOGLE_SECRET) {
-  providers.google = {
-    type: "google",
-    clientId: process.env.AUTH_GOOGLE_ID,
-    clientSecret: process.env.AUTH_GOOGLE_SECRET,
-  }
-}
-
-// Add Email auth if Resend key present
-if (process.env.AUTH_RESEND_KEY) {
-  providers.email = {
-    server: {
-      host: "smtp.resend.com",
-      port: 465,
-      auth: {
-        user: "resend",
-        pass: process.env.AUTH_RESEND_KEY,
-      },
-    },
-    from: "The Toddfather <noreply@thetoddfather.com>",
-  }
-}
-
-const rallyConfig = await buildNextAuthConfig({
-  providers,
-
-  // Simple tenancy - single tenant for now
-  tenancy: {
-    enabled: false,
-  },
-
-  // Map UserTier to role for RBAC compatibility
-  rbac: {
-    enabled: true,
-    defaultRole: "USER",
-    roles: ["ADMIN", "USER", "VIEWER"],
-  },
+  providers: [
+    // Email authentication via Resend
+    ...(process.env.AUTH_RESEND_KEY
+      ? [
+          EmailProvider({
+            apiKey: process.env.AUTH_RESEND_KEY,
+            from: "The Toddfather <noreply@thetoddfather.com>",
+          }),
+        ]
+      : []),
+  ],
 
   session: {
     strategy: "jwt",
@@ -56,9 +30,6 @@ const rallyConfig = await buildNextAuthConfig({
     verifyRequest: "/auth/verify",
   },
 
-  debug: process.env.NODE_ENV === "development",
-
-  // Custom callbacks to maintain tier functionality
   callbacks: {
     async session({ session, token }) {
       if (token && session.user) {
@@ -76,7 +47,13 @@ const rallyConfig = await buildNextAuthConfig({
       }
       return session
     },
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id
+      }
+      return token
+    },
   },
-}, prisma)
 
-export const { handlers, auth, signIn, signOut } = NextAuth(rallyConfig)
+  debug: process.env.NODE_ENV === "development",
+})

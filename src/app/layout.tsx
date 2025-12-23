@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { Playfair_Display, Cinzel, Lora, Geist_Mono } from "next/font/google"
 import { Toaster } from "sonner"
-import { RallySessionProvider } from "@rally/auth"
+import { SessionProvider } from "next-auth/react"
 import { SPMNavigation } from "@/components/spm/navigation/SPMNavigation"
 import "./globals.css"
 
@@ -82,7 +82,7 @@ export default function RootLayout({
       <body
         className={`${playfairDisplay.variable} ${cinzel.variable} ${lora.variable} ${geistMono.variable} antialiased min-h-screen bg-spm-black`}
       >
-        <RallySessionProvider>
+        <SessionProvider>
           <SPMNavigation />
           <main className="relative pt-16">
             {/* Noir texture overlay */}
@@ -146,7 +146,7 @@ export default function RootLayout({
             </div>
           </footer>
           <Toaster richColors position="bottom-right" />
-        </RallySessionProvider>
+        </SessionProvider>
       </body>
     </html>
   )
