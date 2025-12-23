@@ -1,4 +1,5 @@
 import { NoirCard, NoirCardContent, NoirCardTitle, NoirCardDescription } from '@/components/spm/cards/NoirCard';
+import { NewsletterSignup } from '@/components/NewsletterSignup';
 
 export const metadata = {
   title: 'The SPM Syndicate | Community',
@@ -50,30 +51,7 @@ export default function SyndicatePage() {
             </NoirCardContent>
           </NoirCard>
 
-          <NoirCard variant="interactive" hover>
-            <NoirCardContent className="p-12 text-center">
-              <h2 className="text-headline-lg text-white mb-4">
-                Join The Syndicate
-              </h2>
-              <p className="text-gray-300 mb-8">
-                Free. No spam. Just SPM reality delivered weekly.
-              </p>
-              <div className="max-w-md mx-auto">
-                <input
-                  type="email"
-                  placeholder="your@email.com"
-                  className="w-full px-6 py-4 bg-spm-black border-2 border-spm-purple-dark/30 rounded-lg text-white placeholder-gray-500 focus:border-spm-purple outline-none mb-4"
-                  disabled
-                />
-                <button
-                  className="w-full px-8 py-4 bg-spm-purple hover:bg-spm-purple-light text-white font-semibold rounded-lg transition-all hover:shadow-purple-glow"
-                  disabled
-                >
-                  Coming Soon
-                </button>
-              </div>
-            </NoirCardContent>
-          </NoirCard>
+          <NewsletterSignup />
         </div>
       </section>
     </div>
