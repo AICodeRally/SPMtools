@@ -15,7 +15,7 @@ export default function BenchmarksPage() {
         </div>
 
         <div className="relative z-10 container mx-auto px-6 text-center">
-          <h1 className="text-display text-spm-gold mb-6">BENCHMARKS</h1>
+          <h1 className="text-display text-spm-orange mb-6">BENCHMARKS</h1>
           <p className="text-headline text-gray-100 max-w-3xl mx-auto">
             Real data on what works: payout curves, quota patterns, and governance maturity
           </p>

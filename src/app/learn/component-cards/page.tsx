@@ -26,7 +26,7 @@ export default async function ComponentCardsPage() {
         </div>
 
         <div className="relative z-10 container mx-auto px-6 text-center">
-          <h1 className="text-display text-transparent bg-clip-text bg-gradient-to-r from-spm-copper via-spm-purple to-spm-gold mb-6">COMPONENT CARDS</h1>
+          <h1 className="text-display text-transparent bg-clip-text bg-gradient-to-r from-spm-copper via-spm-purple to-spm-orange mb-6">COMPONENT CARDS</h1>
           <p className="text-headline text-gray-100 max-w-3xl mx-auto">
             The building blocks of comp design. Every element explained.
           </p>
@@ -59,7 +59,7 @@ export default async function ComponentCardsPage() {
           <div className="max-w-2xl mx-auto">
             <NoirCard variant="elevated">
               <NoirCardContent className="p-12 text-center">
-                <h2 className="text-2xl font-headline bg-gradient-to-r from-spm-purple to-spm-gold bg-clip-text text-transparent mb-4">
+                <h2 className="text-2xl font-headline bg-gradient-to-r from-spm-purple to-spm-orange bg-clip-text text-transparent mb-4">
                   Component Cards Coming Soon
                 </h2>
                 <p className="text-gray-200 mb-6">
@@ -75,8 +75,8 @@ export default async function ComponentCardsPage() {
                     <span className="text-spm-copper flex-shrink-0">•</span>
                     <span className="text-gray-300">Accelerators (curves, cliffs, timing)</span>
                   </div>
-                  <div className="flex items-start gap-2 bg-spm-gold/5 p-3 rounded-lg">
-                    <span className="text-spm-gold flex-shrink-0">•</span>
+                  <div className="flex items-start gap-2 bg-spm-orange/5 p-3 rounded-lg">
+                    <span className="text-spm-orange flex-shrink-0">•</span>
                     <span className="text-gray-300">Splits (rules, overlays, credit)</span>
                   </div>
                   <div className="flex items-start gap-2 bg-spm-purple-light/5 p-3 rounded-lg">
@@ -107,7 +107,7 @@ export default async function ComponentCardsPage() {
               const colorMap: { [key: string]: { bg: string; text: string; accent: string } } = {
                 'Plan Elements': { bg: 'bg-spm-purple/10', text: 'text-spm-purple', accent: 'text-spm-purple' },
                 'Rule Types': { bg: 'bg-spm-copper/10', text: 'text-spm-copper', accent: 'text-spm-copper' },
-                'Admin Objects': { bg: 'bg-spm-gold/10', text: 'text-spm-gold', accent: 'text-spm-gold' },
+                'Admin Objects': { bg: 'bg-spm-orange/10', text: 'text-spm-orange', accent: 'text-spm-orange' },
                 'Calculations': { bg: 'bg-spm-purple-light/10', text: 'text-spm-purple-light', accent: 'text-spm-purple-light' },
                 'Hierarchies': { bg: 'bg-spm-copper/10', text: 'text-spm-copper', accent: 'text-spm-copper' },
               };

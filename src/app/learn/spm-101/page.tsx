@@ -16,7 +16,7 @@ export default function SPM101Page() {
         </div>
 
         <div className="relative z-10 container mx-auto px-6 text-center">
-          <h1 className="text-display text-transparent bg-clip-text bg-gradient-to-r from-spm-purple via-spm-gold to-spm-copper mb-6">SPM 101</h1>
+          <h1 className="text-display text-transparent bg-clip-text bg-gradient-to-r from-spm-purple via-spm-orange to-spm-copper mb-6">SPM 101</h1>
           <p className="text-headline text-gray-100 max-w-3xl mx-auto">
             Sales Performance Management explained. No jargon, no vendor speak.
           </p>
@@ -68,8 +68,8 @@ export default function SPM101Page() {
                     The plumbing. CRM deals, ERP revenue, manual adjustments. The data that flows in.
                   </p>
                 </div>
-                <div className="border-l-4 border-spm-gold pl-6 rounded-r-lg bg-spm-gold/5 p-6 -ml-6">
-                  <h3 className="text-xl font-headline text-spm-gold mb-2">Calculation Engine</h3>
+                <div className="border-l-4 border-spm-orange pl-6 rounded-r-lg bg-spm-orange/5 p-6 -ml-6">
+                  <h3 className="text-xl font-headline text-spm-orange mb-2">Calculation Engine</h3>
                   <p className="text-gray-200 leading-relaxed">
                     The math. Applies comp plan rules to data. Produces payout amounts.
                   </p>

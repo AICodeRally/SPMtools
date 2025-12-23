@@ -34,7 +34,7 @@ export default function RedesignPage() {
                   <h3 className="text-lg font-headline text-white mb-2">Design</h3>
                   <p className="text-sm">Build comp structure that drives the right behavior. Quotas, accelerators, splits, territories - designed for your reality.</p>
                 </div>
-                <div className="border-l-4 border-spm-gold pl-6">
+                <div className="border-l-4 border-spm-orange pl-6">
                   <h3 className="text-lg font-headline text-white mb-2">Validation</h3>
                   <p className="text-sm">Model the plan against historical data. Find the gotchas before rollout. Stress-test edge cases.</p>
                 </div>

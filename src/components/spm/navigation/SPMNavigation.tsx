@@ -101,7 +101,7 @@ export function SPMNavigation() {
             <div className="flex flex-col">
               <div className="text-2xl font-headline tracking-wider group-hover:opacity-80 transition-all">
                 <span className="text-white">INTELLIGENT </span>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-spm-purple via-spm-gold to-spm-copper">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-spm-purple via-spm-orange to-spm-copper">
                   SPM
                 </span>
               </div>

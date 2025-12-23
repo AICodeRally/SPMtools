@@ -42,8 +42,8 @@ export default function Homepage() {
           {/* Purple spotlight from top-right (film noir lighting) */}
           <div className="absolute inset-0 bg-gradient-to-bl from-spm-purple-dark/40 via-transparent to-spm-black" />
 
-          {/* Gold accent from left (vintage warmth) */}
-          <div className="absolute inset-0 bg-gradient-to-r from-spm-gold/5 via-transparent to-transparent" />
+          {/* Orange accent from left (vintage warmth) */}
+          <div className="absolute inset-0 bg-gradient-to-r from-spm-orange/5 via-transparent to-transparent" />
 
           {/* Dramatic purple glow center */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(124,58,237,0.2)_0%,transparent_50%)]" />
@@ -63,7 +63,7 @@ export default function Homepage() {
 
         {/* Hero Content */}
         <div className="relative z-10 container mx-auto px-6 text-center">
-          <h1 className="text-display text-transparent bg-clip-text bg-gradient-to-r from-spm-purple via-spm-copper to-spm-gold mb-6 drop-shadow-noir-lg">
+          <h1 className="text-display text-transparent bg-clip-text bg-gradient-to-r from-spm-purple via-spm-copper to-spm-orange mb-6 drop-shadow-noir-lg">
             INTELLIGENT SPM
           </h1>
 
@@ -94,7 +94,7 @@ export default function Homepage() {
             <span className="text-gray-600">•</span>
             <span className="text-spm-purple-light">Benchmarks</span>
             <span className="text-gray-600">•</span>
-            <span className="text-spm-gold">Vendor Reality</span>
+            <span className="text-spm-orange">Vendor Reality</span>
             <span className="text-gray-600">•</span>
             <span className="text-gray-400">Community</span>
           </div>
@@ -162,15 +162,15 @@ export default function Homepage() {
 
           {/* Tile 3 */}
           <NoirCard variant="interactive" hover>
-            <NoirCardContent className="p-8 text-center bg-gradient-to-br from-spm-gold/10 to-spm-black">
-              <div className="w-20 h-20 mx-auto mb-6 flex items-center justify-center bg-spm-gold/20 rounded-full">
-                <ScorecardIcon className="w-16 h-16 text-spm-gold" />
+            <NoirCardContent className="p-8 text-center bg-gradient-to-br from-spm-orange/10 to-spm-black">
+              <div className="w-20 h-20 mx-auto mb-6 flex items-center justify-center bg-spm-orange/20 rounded-full">
+                <ScorecardIcon className="w-16 h-16 text-spm-orange" />
               </div>
-              <NoirCardTitle className="text-spm-gold">Vendor Scorecards</NoirCardTitle>
+              <NoirCardTitle className="text-spm-orange">Vendor Scorecards</NoirCardTitle>
               <NoirCardDescription className="text-gray-200">
                 Who's good at what, who breaks where. Real implementation reality from actual rollouts. See what works, what doesn't, and why systems fail.
               </NoirCardDescription>
-              <Link href="/vendors" className="inline-block mt-6 text-spm-gold hover:text-yellow-300 font-semibold transition-colors">
+              <Link href="/vendors" className="inline-block mt-6 text-spm-orange hover:text-orange-300 font-semibold transition-colors">
                 View Scorecards →
               </Link>
             </NoirCardContent>
@@ -215,11 +215,11 @@ export default function Homepage() {
 
             <Link href="/benchmarks">
               <NoirCard variant="interactive" hover className="h-full">
-                <NoirCardContent className="p-8 text-center bg-gradient-to-br from-spm-gold/10 to-spm-black">
+                <NoirCardContent className="p-8 text-center bg-gradient-to-br from-spm-orange/10 to-spm-black">
                   <div className="mb-6 flex items-center justify-center">
-                    <BenchmarksIcon className="w-20 h-20 text-spm-gold" />
+                    <BenchmarksIcon className="w-20 h-20 text-spm-orange" />
                   </div>
-                  <NoirCardTitle className="text-spm-gold">Benchmarks</NoirCardTitle>
+                  <NoirCardTitle className="text-spm-orange">Benchmarks</NoirCardTitle>
                   <NoirCardDescription>Curves, quota patterns, governance</NoirCardDescription>
                 </NoirCardContent>
               </NoirCard>
@@ -268,7 +268,7 @@ export default function Homepage() {
       <section className="py-20 container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
           <div>
-            <h2 className="text-headline-lg text-transparent bg-clip-text bg-gradient-to-r from-spm-gold to-spm-copper mb-2">
+            <h2 className="text-headline-lg text-transparent bg-clip-text bg-gradient-to-r from-spm-orange to-spm-copper mb-2">
               The SPM Reality
             </h2>
             <p className="text-gray-200">
@@ -294,11 +294,11 @@ export default function Homepage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[1, 2, 3].map((i) => {
-            const colors = ['spm-purple', 'spm-copper', 'spm-gold'][i % 3];
+            const colors = ['spm-purple', 'spm-copper', 'spm-orange'][i % 3];
             const colorClasses = {
               'spm-purple': { text: 'text-spm-purple', bg: 'bg-spm-purple/10', border: 'border-spm-purple/30' },
               'spm-copper': { text: 'text-spm-copper', bg: 'bg-spm-copper/10', border: 'border-spm-copper/30' },
-              'spm-gold': { text: 'text-spm-gold', bg: 'bg-spm-gold/10', border: 'border-spm-gold/30' },
+              'spm-orange': { text: 'text-spm-orange', bg: 'bg-spm-orange/10', border: 'border-spm-orange/30' },
             }[colors] || { text: 'text-spm-purple', bg: 'bg-spm-purple/10', border: 'border-spm-purple/30' };
 
             return (
@@ -333,7 +333,7 @@ export default function Homepage() {
       {/* CTA Section */}
       <section className="py-32 bg-gradient-to-br from-spm-purple-dark/20 via-spm-black to-spm-black border-t border-spm-purple-dark/30">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-headline-lg text-transparent bg-clip-text bg-gradient-to-r from-spm-purple via-spm-gold to-spm-copper mb-6">
+          <h2 className="text-headline-lg text-transparent bg-clip-text bg-gradient-to-r from-spm-purple via-spm-orange to-spm-copper mb-6">
             Ready to Check Your Plan?
           </h2>
           <p className="text-gray-100 mb-10 max-w-2xl mx-auto text-lg">

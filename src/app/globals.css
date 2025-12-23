@@ -24,6 +24,7 @@
   /* Accent colors */
   --spm-copper: #B87333;
   --spm-gold: #D4AF37;
+  --spm-orange: #EA7317;
 }
 
 @theme inline {
@@ -47,6 +48,7 @@
 
   --color-spm-copper: var(--spm-copper);
   --color-spm-gold: var(--spm-gold);
+  --color-spm-orange: var(--spm-orange);
 
   /* Typography - Godfather Style */
   --font-sans: var(--font-geist-sans);

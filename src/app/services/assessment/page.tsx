@@ -32,7 +32,7 @@ export default function AssessmentPage() {
                   <h3 className="text-xl font-headline text-white mb-2">Vendor Fit Analysis</h3>
                   <p>If you're evaluating SPM systems, we'll tell you which vendor actually fits your use case (not who has the best demo).</p>
                 </div>
-                <div className="border-l-4 border-spm-gold pl-6">
+                <div className="border-l-4 border-spm-orange pl-6">
                   <h3 className="text-xl font-headline text-white mb-2">Governance Maturity</h3>
                   <p>Where you stand on the maturity model. What controls are missing. What's going to cause chaos at scale.</p>
                 </div>
