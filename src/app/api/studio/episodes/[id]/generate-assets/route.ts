@@ -80,7 +80,6 @@ Return ONLY the JSON array.`
       const { text } = await generateText({
         model: openai('gpt-4o'),
         prompt,
-        maxTokens: 2000,
       })
 
       // Parse B-roll prompts
