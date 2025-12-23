@@ -146,7 +146,7 @@ ${context?.collectionTitle ? `\n\nCurrent Context:\nThe user is viewing Collecti
       },
     })
 
-    return result.toDataStreamResponse()
+    return result.toTextStreamResponse()
   } catch (error) {
     console.error('Chat error:', error)
     return new Response('Internal Server Error', { status: 500 })
