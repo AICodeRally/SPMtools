@@ -98,8 +98,13 @@ export function SPMNavigation() {
             href="/"
             className="flex items-center space-x-3 group transition-all"
           >
-            <div className="text-2xl font-display text-white group-hover:text-spm-purple transition-colors">
-              Intelligent SPM
+            <div className="flex flex-col">
+              <div className="text-2xl font-headline text-white group-hover:text-spm-purple transition-colors tracking-wider">
+                INTELLIGENT SPM
+              </div>
+              <div className="text-xs text-gray-400 group-hover:text-spm-purple-light transition-colors font-body italic -mt-1">
+                Home of The Toddfather
+              </div>
             </div>
           </Link>
 

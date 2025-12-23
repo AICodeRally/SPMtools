@@ -28,21 +28,25 @@ export default function Homepage() {
           {/* Deep black base */}
           <div className="absolute inset-0 bg-spm-black" />
 
-          {/* Toddfather noir panel - subtle silhouette on right */}
+          {/* Toddfather noir panel - dramatic silhouette on left */}
           <Image
             src="/images/noir/toddfather_noir_panel_1_left.png"
             alt=""
-            width={600}
-            height={900}
-            className="absolute right-0 top-1/2 -translate-y-1/2 opacity-10 pointer-events-none mix-blend-screen"
+            width={700}
+            height={1050}
+            className="absolute left-0 top-1/2 -translate-y-1/2 opacity-15 pointer-events-none mix-blend-lighten"
             aria-hidden="true"
+            priority
           />
 
-          {/* Purple spotlight from top */}
-          <div className="absolute inset-0 bg-gradient-to-b from-spm-purple-dark/30 via-transparent to-spm-black" />
+          {/* Purple spotlight from top-right (film noir lighting) */}
+          <div className="absolute inset-0 bg-gradient-to-bl from-spm-purple-dark/40 via-transparent to-spm-black" />
 
-          {/* Diagonal purple accent */}
-          <div className="absolute inset-0 bg-gradient-to-br from-transparent via-spm-purple-dark/10 to-transparent" />
+          {/* Gold accent from left (vintage warmth) */}
+          <div className="absolute inset-0 bg-gradient-to-r from-spm-gold/5 via-transparent to-transparent" />
+
+          {/* Dramatic purple glow center */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(124,58,237,0.2)_0%,transparent_50%)]" />
 
           {/* Crosshatch texture (woodcut effect) */}
           <div className="absolute inset-0 crosshatch opacity-30" />
@@ -72,21 +76,27 @@ export default function Homepage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Link
               href="/analyze/plan-check"
-              className="px-8 py-4 bg-spm-purple hover:bg-spm-purple-light text-white text-lg font-semibold rounded-lg transition-all hover:shadow-purple-glow hover:scale-105"
+              className="px-8 py-4 bg-gradient-to-r from-spm-purple to-spm-purple-light hover:from-spm-purple-light hover:to-spm-purple text-white text-lg font-semibold rounded-lg transition-all hover:shadow-purple-glow hover:scale-105 border border-spm-purple-light/30"
             >
               Run a Plan Check
             </Link>
             <Link
               href="/learn/library"
-              className="px-8 py-4 border-2 border-spm-purple text-spm-purple hover:bg-spm-purple hover:text-white text-lg font-semibold rounded-lg transition-all"
+              className="px-8 py-4 border-2 border-spm-copper text-spm-copper hover:bg-spm-copper hover:text-spm-black text-lg font-semibold rounded-lg transition-all hover:shadow-[0_0_20px_rgba(184,115,51,0.5)]"
             >
               Explore the SPM Library
             </Link>
           </div>
 
           {/* Proof bar */}
-          <div className="text-gray-400 text-sm tracking-wider">
-            Tools • Benchmarks • Vendor Reality • Community
+          <div className="flex items-center justify-center gap-3 text-sm">
+            <span className="text-spm-copper">Tools</span>
+            <span className="text-gray-600">•</span>
+            <span className="text-spm-purple-light">Benchmarks</span>
+            <span className="text-gray-600">•</span>
+            <span className="text-spm-gold">Vendor Reality</span>
+            <span className="text-gray-600">•</span>
+            <span className="text-gray-400">Community</span>
           </div>
         </div>
 
