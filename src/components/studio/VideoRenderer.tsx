@@ -44,7 +44,11 @@ export function VideoRenderer({ episodeId, cutId, cutFormat, onComplete }: Video
         const data = await avatarsRes.json()
         setAvatars(data.avatars || [])
         if (data.avatars.length > 0) {
-          setSelectedAvatar(data.avatars[0].providerId || '')
+          // Use providerId if available, otherwise use id as fallback
+          setSelectedAvatar(data.avatars[0].providerId || data.avatars[0].id || 'default')
+        } else {
+          // Set a default avatar ID even if none uploaded
+          setSelectedAvatar('default')
         }
       }
 
@@ -275,7 +279,7 @@ export function VideoRenderer({ episodeId, cutId, cutFormat, onComplete }: Video
       <div className="flex gap-3 pt-4">
         <button
           onClick={handleGenerate}
-          disabled={generating || !selectedAvatar}
+          disabled={generating}
           className="flex-1 px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {generating ? 'Starting Generation...' : 'Generate Video'}
