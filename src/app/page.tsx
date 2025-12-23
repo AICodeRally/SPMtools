@@ -22,10 +22,20 @@ export default function Homepage() {
     <div className="w-full">
       {/* Hero Section - Category Ownership */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background: Pure Noir Aesthetic */}
+        {/* Background: Pure Noir Aesthetic with Toddfather Silhouette */}
         <div className="absolute inset-0 z-0">
           {/* Deep black base */}
           <div className="absolute inset-0 bg-spm-black" />
+
+          {/* Toddfather noir panel - subtle silhouette on right */}
+          <Image
+            src="/images/noir/toddfather_noir_panel_1_left.png"
+            alt=""
+            width={600}
+            height={900}
+            className="absolute right-0 top-1/2 -translate-y-1/2 opacity-10 pointer-events-none mix-blend-screen"
+            aria-hidden="true"
+          />
 
           {/* Purple spotlight from top */}
           <div className="absolute inset-0 bg-gradient-to-b from-spm-purple-dark/30 via-transparent to-spm-black" />
