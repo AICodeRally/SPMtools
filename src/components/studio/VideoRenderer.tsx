@@ -29,7 +29,7 @@ export function VideoRenderer({ episodeId, cutId, cutFormat, onComplete }: Video
   }, [])
 
   useEffect(() => {
-    if (videoId && status === 'processing') {
+    if (videoId && (status === 'processing' || status === 'waiting' || status === 'pending')) {
       const interval = setInterval(checkStatus, 10000) // Poll every 10s
       return () => clearInterval(interval)
     }
@@ -95,7 +95,7 @@ export function VideoRenderer({ episodeId, cutId, cutFormat, onComplete }: Video
 
   const handleGenerate = async () => {
     setGenerating(true)
-    setStatus('processing')
+    setStatus('waiting')
 
     try {
       const res = await fetch(`/api/studio/episodes/${episodeId}/render`, {
@@ -264,7 +264,7 @@ export function VideoRenderer({ episodeId, cutId, cutFormat, onComplete }: Video
     )
   }
 
-  if (status === 'processing') {
+  if (status === 'processing' || status === 'waiting' || status === 'pending') {
     return (
       <div className="space-y-4">
         <div className="bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6 text-center">
@@ -272,13 +272,16 @@ export function VideoRenderer({ episodeId, cutId, cutFormat, onComplete }: Video
             <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
           </div>
           <p className="text-sm text-blue-900 dark:text-blue-100 mb-2 font-medium">
-            Generating video...
+            {status === 'waiting' ? 'In HeyGen Queue...' : 'Generating video...'}
           </p>
           <p className="text-xs text-blue-700 dark:text-blue-300">
             This takes 5-10 minutes. HeyGen is creating your talking head video.
           </p>
+          <p className="text-xs text-blue-600 dark:text-blue-400 mt-2">
+            Status: <span className="font-semibold">{status}</span>
+          </p>
           {videoId && (
-            <p className="text-xs text-blue-600 dark:text-blue-400 mt-3 font-mono">
+            <p className="text-xs text-blue-600 dark:text-blue-400 mt-1 font-mono">
               Video ID: {videoId}
             </p>
           )}
