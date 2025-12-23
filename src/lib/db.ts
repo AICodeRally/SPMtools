@@ -9,6 +9,7 @@ export const prisma =
   globalForPrisma.prisma ??
   new PrismaClient({
     log: process.env.NODE_ENV === 'development' ? ['error', 'warn'] : ['error'],
+    accelerateUrl: process.env.POSTGRES_PRISMA_URL,
   }).$extends(withAccelerate())
 
 if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
