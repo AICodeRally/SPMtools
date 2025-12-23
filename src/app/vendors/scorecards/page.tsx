@@ -1,12 +1,23 @@
 import Link from 'next/link';
 import { NoirCard, NoirCardContent, NoirCardTitle, NoirCardDescription } from '@/components/spm/cards/NoirCard';
+import { prisma } from '@/lib/db';
 
 export const metadata = {
   title: 'Vendor Scorecards | Intelligent SPM',
   description: 'Real implementation truth about SPM vendors. Who\'s good at what, who breaks where.',
 };
 
-const vendors = [
+async function getVendors() {
+  const vendors = await prisma.vendorScorecard.findMany({
+    orderBy: { vendorName: 'asc' },
+  });
+  return vendors;
+}
+
+export default async function VendorScorecardsPage() {
+  const vendorData = await getVendors();
+
+  const fallbackVendors = vendorData.length === 0 ? [
   {
     name: 'Xactly',
     slug: 'xactly',
@@ -39,9 +50,10 @@ const vendors = [
     worstFor: ['Modern UX', 'Developer experience'],
     status: 'Coming Soon',
   },
-];
+] : [];
 
-export default function VendorScorecardsPage() {
+  const vendors = vendorData.length > 0 ? vendorData : fallbackVendors;
+
   return (
     <div className="w-full">
       <section className="relative py-32 overflow-hidden">
