@@ -73,10 +73,20 @@ export async function POST(
       }, { status: 503 })
     }
 
+    // Resolve avatar ID - if database ID provided, look up the HeyGen providerId
+    let heygenAvatarId = avatarId
+    if (avatarId && avatarId.startsWith('cmj')) {
+      // This is a database ID, need to look up the actual HeyGen providerId
+      const avatarRecord = await prisma.toddStudioAsset.findUnique({
+        where: { id: avatarId },
+      })
+      heygenAvatarId = avatarRecord?.metadataJson?.providerId || null
+    }
+
     // Generate video with HeyGen
     const result = await generateHeyGenVideo({
       scriptText,
-      avatarId,
+      avatarId: heygenAvatarId, // Use HeyGen avatar ID or null for default
       voiceId,
       aspectRatio: aspectRatio as '16:9' | '9:16' | '1:1',
       background: '#000000', // Noir black background
