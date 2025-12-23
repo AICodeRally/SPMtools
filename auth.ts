@@ -1,12 +1,23 @@
 import NextAuth from "next-auth"
 import { PrismaAdapter } from "@auth/prisma-adapter"
 import EmailProvider from "next-auth/providers/resend"
+import GitHubProvider from "next-auth/providers/github"
 import { prisma } from "./src/lib/db"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   adapter: PrismaAdapter(prisma) as any,
 
   providers: [
+    // GitHub OAuth
+    ...(process.env.AUTH_GITHUB_ID && process.env.AUTH_GITHUB_SECRET
+      ? [
+          GitHubProvider({
+            clientId: process.env.AUTH_GITHUB_ID,
+            clientSecret: process.env.AUTH_GITHUB_SECRET,
+          }),
+        ]
+      : []),
+
     // Email authentication via Resend
     ...(process.env.AUTH_RESEND_KEY
       ? [
