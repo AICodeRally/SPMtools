@@ -10,10 +10,11 @@
   --spm-black-soft: #1A1A1A;
 
   /* Purple accents (from brand images) */
-  --spm-purple: #7C3AED;
-  --spm-purple-light: #9333EA;
+  --spm-purple: #8B5CF6;
+  --spm-purple-light: #A78BFA;
   --spm-purple-dark: #6B46C1;
-  --spm-purple-glow: #A78BFA;
+  --spm-purple-glow: #C4B5FD;
+  --spm-purple-text: #C4B5FD;
 
   /* Vintage paper (aged cream) */
   --spm-paper: #F4E9D7;
@@ -38,6 +39,7 @@
   --color-spm-purple-light: var(--spm-purple-light);
   --color-spm-purple-dark: var(--spm-purple-dark);
   --color-spm-purple-glow: var(--spm-purple-glow);
+  --color-spm-purple-text: var(--spm-purple-text);
 
   --color-spm-paper: var(--spm-paper);
   --color-spm-paper-light: var(--spm-paper-light);

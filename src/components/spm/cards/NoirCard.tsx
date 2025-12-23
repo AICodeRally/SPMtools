@@ -170,7 +170,7 @@ export function NoirCardTitle({
   return (
     <h3
       className={cn(
-        'text-2xl font-headline text-spm-purple mb-2',
+        'text-2xl font-headline text-spm-purple-light mb-2',
         className
       )}
     >
