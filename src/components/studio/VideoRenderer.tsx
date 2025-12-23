@@ -21,6 +21,8 @@ export function VideoRenderer({ episodeId, cutId, cutFormat, onComplete }: Video
   const [status, setStatus] = useState<string>('idle')
   const [videoUrl, setVideoUrl] = useState<string | null>(null)
   const [showOptions, setShowOptions] = useState(false)
+  const [telemetry, setTelemetry] = useState<any>(null)
+  const [showTelemetry, setShowTelemetry] = useState(false)
 
   useEffect(() => {
     loadAssets()
@@ -75,6 +77,7 @@ export function VideoRenderer({ episodeId, cutId, cutFormat, onComplete }: Video
       const data = await res.json()
 
       setStatus(data.status)
+      setTelemetry(data.telemetry || data)
 
       if (data.status === 'completed' && data.finalUrl) {
         setVideoUrl(data.finalUrl)
@@ -109,9 +112,21 @@ export function VideoRenderer({ episodeId, cutId, cutFormat, onComplete }: Video
       if (res.ok) {
         const data = await res.json()
         setVideoId(data.videoId)
+        setTelemetry({
+          videoId: data.videoId,
+          status: 'initiated',
+          timestamp: new Date().toISOString(),
+          request: { cutId, avatarId: selectedAvatar, voiceId: selectedVoice, aspectRatio },
+          response: data,
+        })
         setShowOptions(false)
       } else {
         const error = await res.json()
+        setTelemetry({
+          status: 'failed',
+          timestamp: new Date().toISOString(),
+          error: error,
+        })
         if (error.stub) {
           alert('HeyGen not configured. Add HEYGEN_API_KEY to .env to generate videos.')
         } else {
@@ -140,6 +155,58 @@ export function VideoRenderer({ episodeId, cutId, cutFormat, onComplete }: Video
     }
   }, [cutFormat])
 
+  if (status === 'failed') {
+    return (
+      <div className="space-y-4">
+        <div className="bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-800 rounded-lg p-6 text-center">
+          <p className="text-sm text-red-800 dark:text-red-200 mb-2 font-medium">
+            ✗ Video generation failed
+          </p>
+          <p className="text-xs text-red-700 dark:text-red-300">
+            {telemetry?.heygenResponse?.error?.message || 'Unknown error occurred'}
+          </p>
+          {telemetry?.heygenResponse?.error?.code && (
+            <p className="text-xs text-red-600 dark:text-red-400 mt-2 font-mono">
+              Error Code: {telemetry.heygenResponse.error.code}
+            </p>
+          )}
+        </div>
+
+        {/* Telemetry Panel */}
+        {telemetry && (
+          <div className="bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg">
+            <button
+              onClick={() => setShowTelemetry(!showTelemetry)}
+              className="w-full px-4 py-3 text-left text-xs font-mono text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors flex items-center justify-between"
+            >
+              <span>🔍 API Telemetry</span>
+              <span>{showTelemetry ? '▼' : '▶'}</span>
+            </button>
+            {showTelemetry && (
+              <div className="px-4 py-3 border-t border-zinc-200 dark:border-zinc-800">
+                <pre className="text-xs text-zinc-700 dark:text-zinc-300 overflow-x-auto">
+                  {JSON.stringify(telemetry, null, 2)}
+                </pre>
+              </div>
+            )}
+          </div>
+        )}
+
+        <button
+          onClick={() => {
+            setVideoUrl(null)
+            setVideoId(null)
+            setStatus('idle')
+            setTelemetry(null)
+          }}
+          className="w-full px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg text-sm font-semibold transition-colors"
+        >
+          Try Again
+        </button>
+      </div>
+    )
+  }
+
   if (videoUrl) {
     return (
       <div className="space-y-4">
@@ -166,28 +233,76 @@ export function VideoRenderer({ episodeId, cutId, cutFormat, onComplete }: Video
               setVideoUrl(null)
               setVideoId(null)
               setStatus('idle')
+              setTelemetry(null)
             }}
             className="px-4 py-2 border border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-zinc-100 rounded-lg text-sm font-semibold hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors"
           >
             Regenerate
           </button>
         </div>
+
+        {/* Telemetry Panel */}
+        {telemetry && (
+          <div className="bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg">
+            <button
+              onClick={() => setShowTelemetry(!showTelemetry)}
+              className="w-full px-4 py-3 text-left text-xs font-mono text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors flex items-center justify-between"
+            >
+              <span>🔍 API Telemetry</span>
+              <span>{showTelemetry ? '▼' : '▶'}</span>
+            </button>
+            {showTelemetry && (
+              <div className="px-4 py-3 border-t border-zinc-200 dark:border-zinc-800">
+                <pre className="text-xs text-zinc-700 dark:text-zinc-300 overflow-x-auto">
+                  {JSON.stringify(telemetry, null, 2)}
+                </pre>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     )
   }
 
   if (status === 'processing') {
     return (
-      <div className="bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6 text-center">
-        <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-600 mb-4">
-          <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+      <div className="space-y-4">
+        <div className="bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6 text-center">
+          <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-600 mb-4">
+            <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+          </div>
+          <p className="text-sm text-blue-900 dark:text-blue-100 mb-2 font-medium">
+            Generating video...
+          </p>
+          <p className="text-xs text-blue-700 dark:text-blue-300">
+            This takes 5-10 minutes. HeyGen is creating your talking head video.
+          </p>
+          {videoId && (
+            <p className="text-xs text-blue-600 dark:text-blue-400 mt-3 font-mono">
+              Video ID: {videoId}
+            </p>
+          )}
         </div>
-        <p className="text-sm text-blue-900 dark:text-blue-100 mb-2 font-medium">
-          Generating video...
-        </p>
-        <p className="text-xs text-blue-700 dark:text-blue-300">
-          This takes 5-10 minutes. HeyGen is creating your talking head video.
-        </p>
+
+        {/* Telemetry Panel */}
+        {telemetry && (
+          <div className="bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg">
+            <button
+              onClick={() => setShowTelemetry(!showTelemetry)}
+              className="w-full px-4 py-3 text-left text-xs font-mono text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors flex items-center justify-between"
+            >
+              <span>🔍 API Telemetry</span>
+              <span>{showTelemetry ? '▼' : '▶'}</span>
+            </button>
+            {showTelemetry && (
+              <div className="px-4 py-3 border-t border-zinc-200 dark:border-zinc-800">
+                <pre className="text-xs text-zinc-700 dark:text-zinc-300 overflow-x-auto">
+                  {JSON.stringify(telemetry, null, 2)}
+                </pre>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     )
   }

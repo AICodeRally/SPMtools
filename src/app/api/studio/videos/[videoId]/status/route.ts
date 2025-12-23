@@ -30,6 +30,14 @@ export async function GET(
     // Check status with HeyGen
     const status = await checkHeyGenVideoStatus(videoId)
 
+    // Return telemetry data for debugging
+    const telemetry = {
+      videoId,
+      status: status.status,
+      timestamp: new Date().toISOString(),
+      heygenResponse: status,
+    }
+
     // If completed, download and save to Vercel Blob
     if (status.status === 'completed' && status.videoUrl) {
       // Find the asset record
@@ -70,11 +78,15 @@ export async function GET(
           ...status,
           assetId: asset.id,
           finalUrl: blob.url,
+          telemetry,
         })
       }
     }
 
-    return NextResponse.json(status)
+    return NextResponse.json({
+      ...status,
+      telemetry,
+    })
 
   } catch (error: any) {
     console.error('Error checking video status:', error)
