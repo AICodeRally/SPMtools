@@ -15,8 +15,8 @@ export default function AnalyzePage() {
         </div>
 
         <div className="relative z-10 container mx-auto px-6 text-center">
-          <h1 className="text-display text-white mb-6">ANALYZE</h1>
-          <p className="text-headline text-gray-200 max-w-3xl mx-auto">
+          <h1 className="text-display text-spm-gold mb-6">ANALYZE</h1>
+          <p className="text-headline text-gray-100 max-w-3xl mx-auto">
             Tools to diagnose, simulate, and validate your comp plans before they break
           </p>
         </div>

@@ -15,8 +15,8 @@ export default function VendorsPage() {
         </div>
 
         <div className="relative z-10 container mx-auto px-6 text-center">
-          <h1 className="text-display text-white mb-6">VENDORS</h1>
-          <p className="text-headline text-gray-200 max-w-3xl mx-auto">
+          <h1 className="text-display text-spm-purple mb-6">VENDORS</h1>
+          <p className="text-headline text-gray-100 max-w-3xl mx-auto">
             Who's good at what. Who breaks where. The implementation reality no one tells you.
           </p>
         </div>
