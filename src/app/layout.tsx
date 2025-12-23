@@ -33,12 +33,13 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.intelligentspm.com'),
   title: {
     default: "Intelligent SPM | The Toddfather",
     template: "%s | Intelligent SPM",
   },
   description:
-    "The clearing house for sales compensation, governance, and performance truth.",
+    "The clearing house for sales compensation, governance, and performance truth. Tools, benchmarks, vendor reality, and community from The Toddfather.",
   keywords: [
     "SPM",
     "Sales Performance Management",
@@ -47,25 +48,52 @@ export const metadata: Metadata = {
     "Intelligent Sales",
     "Comp Design",
     "Governance",
+    "Quota",
+    "Accelerator",
+    "Sales Compensation",
+    "ICM",
+    "Incentive Compensation",
   ],
   authors: [{ name: "The Toddfather" }],
   creator: "The Toddfather",
+  publisher: "Intelligent SPM",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://intelligentspm.com",
+    url: "https://www.intelligentspm.com",
     title: "Intelligent SPM | The Toddfather",
     description: "The clearing house for sales compensation, governance, and performance truth.",
     siteName: "Intelligent SPM",
+    images: [
+      {
+        url: "/images/noir/toddfather_noir_panel_2_middle.png",
+        width: 1200,
+        height: 630,
+        alt: "The Toddfather - Intelligent SPM",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Intelligent SPM | The Toddfather",
     description: "The clearing house for sales compensation, governance, and performance truth.",
     creator: "@thetoddfather",
+    images: ["/images/noir/toddfather_noir_panel_2_middle.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   icons: {
     icon: "/favicon.ico",
+    apple: "/favicon.ico",
   },
 }
 
