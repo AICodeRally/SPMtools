@@ -74,7 +74,6 @@ Output ONLY the adapted script. No meta-commentary.`
       const { text } = await generateText({
         model: openai('gpt-4o'),
         prompt,
-        maxTokens: 2000,
       })
 
       // Create script for this cut

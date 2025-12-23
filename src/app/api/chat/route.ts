@@ -102,7 +102,6 @@ ${context?.collectionTitle ? `\n\nCurrent Context:\nThe user is viewing Collecti
 
         const localResponse = await callLocalLLM(fullPrompt, {
           temperature: 0.7,
-          maxTokens: 1500,
         })
 
         // Save assistant message

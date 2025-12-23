@@ -80,7 +80,6 @@ Example format:
     const { text } = await generateText({
       model: openai('gpt-4o'),
       prompt,
-      maxTokens: 4000,
     })
 
     // Parse JSON response

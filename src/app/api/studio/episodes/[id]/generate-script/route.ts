@@ -59,7 +59,6 @@ Write ONLY the script content. No meta-commentary. Use clear section headers.`
     const { text } = await generateText({
       model: openai('gpt-4o'),
       prompt,
-      maxTokens: 4000,
     })
 
     // Save script to database
